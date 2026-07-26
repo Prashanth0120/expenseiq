@@ -22,4 +22,5 @@ venv/
 
 # OS
 .DS_Store
-Thumbs.db
+Thumbs.dbgithub-federated-credential.json
+github-federated-credential.json
