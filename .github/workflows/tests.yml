@@ -53,7 +53,7 @@ jobs:
 
 
 
-          name: ExpenseIQ CI/CD
+  name: ExpenseIQ CI/CD
 
 on:
   push:
