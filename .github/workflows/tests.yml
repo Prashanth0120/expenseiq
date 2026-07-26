@@ -90,21 +90,21 @@ jobs:
 
       - name: Login to Azure Container Registry
         run: |
-          az acr login --name expenseiqacr2026
+          az acr login --name expenseiqac2026
 
       - name: Build Docker image
         run: |
-          docker build -t expenseiqacr2026.azurecr.io/expenseiq:${{ github.sha }} .
-          docker tag expenseiqacr2026.azurecr.io/expenseiq:${{ github.sha }} expenseiqacr2026.azurecr.io/expenseiq:latest
+          docker build -t expenseiqac2026.azurecr.io/expenseiq:${{ github.sha }} .
+          docker tag expenseiqac2026.azurecr.io/expenseiq:${{ github.sha }} expenseiqac2026.azurecr.io/expenseiq:latest
 
       - name: Push Docker image
         run: |
-          docker push expenseiqacr2026.azurecr.io/expenseiq:${{ github.sha }}
-          docker push expenseiqacr2026.azurecr.io/expenseiq:latest
+          docker push expenseiqac2026.azurecr.io/expenseiq:${{ github.sha }}
+          docker push expenseiqac2026.azurecr.io/expenseiq:latest
 
       - name: Deploy to Azure Container Apps
         run: |
           az containerapp update \
             --name expenseiq-api \
             --resource-group expenseiq-rg \
-            --image expenseiqacr2026.azurecr.io/expenseiq:${{ github.sha }}
+            --image expenseiqac2026.azurecr.io/expenseiq:${{ github.sha }}
