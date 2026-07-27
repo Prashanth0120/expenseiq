@@ -108,3 +108,10 @@ jobs:
             --name expenseiq-api \
             --resource-group expenseiq-rg \
             --image expenseiqac2026.azurecr.io/expenseiq:${{ github.sha }}
+
+            - name: Run database migrations
+        run: |
+          az containerapp exec \
+            --name expenseiq-api \
+            --resource-group expenseiq-rg \
+            --command "alembic upgrade head"
